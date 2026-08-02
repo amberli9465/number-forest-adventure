@@ -10,12 +10,11 @@
 
 <body>
   <main class="app">
-    <!-- 首頁：選擇遞增或遞減 -->
     <section id="homeScreen" class="screen home-screen" aria-labelledby="homeTitle">
       <div class="home-content">
         <p class="eyebrow">10 以內的數量概念</p>
         <h1 id="homeTitle">數字森林大冒險</h1>
-        <p class="home-intro">選一個任務，看看數量怎麼增加或減少。</p>
+        <p class="home-intro">選一個任務，看看數量怎麼增加、減少，或自由變化。</p>
 
         <div class="mode-menu" aria-label="選擇學習任務">
           <button id="bananaModeButton" class="mode-card banana-card" type="button">
@@ -33,38 +32,30 @@
               <small>從 10 到 0</small>
             </span>
           </button>
+
+          <button id="appleModeButton" class="mode-card apple-card" type="button">
+            <img src="img/apple/a01.png" alt="" aria-hidden="true">
+            <span>
+              <strong>蘋果加減</strong>
+              <small>從 5 開始，自由加減</small>
+            </span>
+          </button>
         </div>
       </div>
     </section>
 
-    <!-- 共用學習頁：由 JavaScript 切換香蕉／蘿蔔模式 -->
     <section id="lessonScreen" class="screen lesson-screen" aria-labelledby="lessonTitle" hidden>
-      <img
-        class="forest-bottom"
-        src="img/background/forest-bottom.webp"
-        alt=""
-        aria-hidden="true"
-      >
+      <img class="forest-bottom" src="img/background/forest-bottom.webp" alt="" aria-hidden="true">
 
       <header class="lesson-header">
-        <button id="homeButton" class="round-button" type="button" aria-label="回到首頁">
-          ⌂
-        </button>
+        <button id="homeButton" class="round-button" type="button" aria-label="回到首頁">⌂</button>
 
         <div>
           <p id="lessonEyebrow" class="eyebrow lesson-eyebrow">遞增概念</p>
           <h2 id="lessonTitle">一根一根增加香蕉</h2>
         </div>
 
-        <button
-          id="soundButton"
-          class="round-button"
-          type="button"
-          aria-pressed="false"
-          aria-label="關閉聲音"
-        >
-          🔊
-        </button>
+        <button id="soundButton" class="round-button" type="button" aria-pressed="false" aria-label="關閉聲音">🔊</button>
       </header>
 
       <section class="learning-card" aria-describedby="instructionText">
@@ -73,36 +64,27 @@
           <small id="unitText">根香蕉</small>
         </div>
 
-        <p id="instructionText" class="instruction">
-          按下按鈕，再加一根香蕉。
-        </p>
+        <p id="instructionText" class="instruction">按下按鈕，再加一根香蕉。</p>
 
-        <div id="itemGrid" class="item-grid" aria-label="數量圖">
-          <!-- JavaScript 會建立 10 個位置 -->
-        </div>
+        <div id="itemGrid" class="item-grid" aria-label="數量圖"></div>
 
-        <p id="statusText" class="status-text" aria-live="polite">
-          現在有 0 根香蕉。
-        </p>
+        <p id="statusText" class="status-text" aria-live="polite">現在有 0 根香蕉。</p>
 
         <div class="action-area">
-          <button id="actionButton" class="image-button" type="button">
-            <img
-              id="actionButtonImage"
-              src="img/buttons/btn-add-banana.webp"
-              alt="再加一根香蕉"
-            >
-            <span id="actionButtonFallback" class="button-fallback" hidden>
-              再加一根香蕉 ＋1
-            </span>
+          <button id="primaryActionButton" class="image-button" type="button">
+            <img id="primaryActionImage" src="img/buttons/btn-add-banana.webp" alt="再加一根香蕉">
+            <span id="primaryActionFallback" class="button-fallback" hidden>再加一根香蕉 ＋1</span>
           </button>
 
-          <button id="resetButton" class="reset-button" type="button">
-            重新開始
+          <button id="secondaryActionButton" class="image-button" type="button" hidden>
+            <img id="secondaryActionImage" src="img/buttons/btn-remove-apple.webp" alt="再拿走一顆蘋果">
+            <span id="secondaryActionFallback" class="button-fallback" hidden>再拿走一顆蘋果 －1</span>
           </button>
+
+          <button id="resetButton" class="reset-button" type="button">重新開始</button>
         </div>
 
-        <div class="progress" aria-label="目前任務進度">
+        <div class="progress" aria-label="目前數量狀態">
           <div id="progressBar" class="progress-bar"></div>
         </div>
       </section>
